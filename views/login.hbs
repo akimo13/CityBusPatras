@@ -1,0 +1,82 @@
+{{!-- views/login.hbs --}}
+<section id="auth" class="section">
+        <div class="container mt-5">
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="signup-tab" href="#signup" data-bs-toggle="tab">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="login-tab" href="#login" data-bs-toggle="tab">Login</a>
+                </li>
+            </ul>
+       
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Signup Form -->
+                <div id="signup" class="container tab-pane active" role="tabpanel" aria-labelledby="signup-tab">
+                    <form action="/users/signup" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            {{#if error.fullName}}
+                              <small class="form-text text-danger">{{error.fullName}}</small>
+                            {{/if}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="signupEmail" name="signupEmail" required>
+                            {{#if error.signupEmail}}
+                              <small class="form-text text-danger">{{error.signupEmail}}</small>
+                            {{/if}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="signupUsername" name="signupUsername" required>
+                            {{#if error.signupUsername}}
+                              <small class="form-text text-danger">{{error.signupUsername}}</small>
+                            {{/if}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" name="signupPassword" required>
+                            {{#if error.signupPassword}}
+                              <small class="form-text text-danger">{{error.signupPassword}}</small>
+                            {{/if}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                            {{#if error.confirmPassword}}
+                              <small class="form-text text-danger">{{error.confirmPassword}}</small>
+                            {{/if}}
+                        </div>
+     <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="discountCheck" name="discountCheck">
+                            <label class="form-check-label" for="discountCheck">Qualify for a discount ticket</label>
+                        </div>
+    <div class="mb-3 d-none" id="documentUpload">
+        <label for="document" class="form-label">Upload Document</label>
+        <input type="file" class="form-control" id="document" name="document" accept=".pdf,.png,.jpg,.jpeg">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+
+            </div>
+            <!-- Login Form -->
+            <div id="login" class="container tab-pane fade" role="tabpanel" aria-labelledby="login-tab">
+                <form action="/users/login" method="post">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="loginUsername" name="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" name="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</section>

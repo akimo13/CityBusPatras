@@ -1,0 +1,51 @@
+{{!-- views/routes.hbs --}}
+<section class="main">
+    <div class="intro-section">
+        <h1 class="main-heading">City Bus Routes and Tickets</h1>
+        <p>Select a zone on the map to view tickets.</p>
+    </div>
+    <div class="content-container d-flex">
+        <!-- Map Display Section -->
+        <section class="map-section" id="map-area">
+            <article>
+                <h2>Route Zones</h2>
+                <div id="map"></div>
+            </article>
+        </section>
+
+        <!-- Ticket Information Section -->
+        <section class="tickets-section">
+            <h2>Available Tickets</h2>
+            <div class="tickets-grid">
+                <section class="tickets-section zone-a">
+                    <article class="ticket">
+                        <img src="/img/tickets/Green.jpeg" alt="Zone A ticket Standard Price: 1.20€">
+                        <h3>Zone A - Standard</h3>
+                        <p>Price: 1.20€</p>
+                        <button>Purchase</button>
+                    </article>
+                    <article class="ticket">
+                        <img src="/img/tickets/Blue.jpeg" alt="Zone A ticket Discounted Price: 0.60€">
+                        <h3>Zone A - Discounted</h3>
+                        <p>Price: 0.60€</p>
+                        <button>Purchase</button>
+                    </article>
+                </section>
+                <section class="tickets-section zone-b">
+                    <article class="ticket">
+                        <img src="/img/tickets/Orange.jpeg" alt="Zone B ticket Standard Price: 1.70€">
+                        <h3>Zone B - Standard</h3>
+                        <p>Price: 1.70€</p>
+                        <button>Purchase</button>
+                    </article>
+                    <article class="ticket">
+                        <img src="/img/tickets/Brown.jpeg" alt="Zone B ticket Discounted Price: 0.80€">
+                        <h3>Zone B - Discounted</h3>
+                        <p>Price: 0.80€</p>
+                        <button>Purchase</button>
+                    </article>
+                </section>
+            </div>
+        </section>
+    </div>
+</section>

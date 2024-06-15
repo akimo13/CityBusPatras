@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1718454037632,
+    "fullName": "John Doe",
+    "email": "johnnybegood@mail.com",
+    "username": "akiJ",
+    "password": "123456",
+    "document": null
+  },
+  {
+    "id": 1718464491208,
+    "fullName": "Jane Dayne",
+    "email": "jane@mail.com",
+    "username": "jeanne",
+    "password": "987456321",
+    "document": null
+  },
+  {
+    "id": 1718474462220,
+    "fullName": "Vas Kak",
+    "email": "vaskak@mail.gr",
+    "username": "VK",
+    "password": "785621",
+    "document": null
+  },
+  {
+    "id": 1718474480137,
+    "fullName": "Vas Kak",
+    "email": "vaskak@mail.gr",
+    "username": "VK",
+    "password": "785621",
+    "document": null
+  },
+  {
+    "id": 1718474504159,
+    "fullName": "Vas Kak",
+    "email": "vaskak@mail.gr",
+    "username": "VK",
+    "password": "785621",
+    "document": null
+  },
+  {
+    "id": 1718474544147,
+    "fullName": "Vas Kak",
+    "email": "vaskak@mail.gr",
+    "username": "VK",
+    "password": "785621",
+    "document": null
+  }
+]

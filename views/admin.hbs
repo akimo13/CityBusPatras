@@ -1,0 +1,73 @@
+{{!-- views/admin.hbs --}}
+<main class="main container">
+    <section class="admin-section">
+        <header>
+            <h1>Admin Panel</h1>
+            <button class="btn btn-primary" id="add-user-btn">Add New User</button>
+        </header>
+        <article>
+            <h2>Manage Users</h2>
+            {{!-- NOTE TO SELF, CHECK THE CSS!!! --}}
+            <ol class="user-list">
+                {{#each users}}
+                <li class="user-item">
+                    <div class="user-info">
+                        <p>ID: {{this.id}}</p>
+                        <p>Full Name: {{this.fullName}}</p>
+                        <p>Email: {{this.email}}</p>
+                        <p>Username: {{this.username}}</p>
+                        <p>Role: {{this.role}}</p>
+                        <p>Discount Eligibility:
+                            <select name="discountEligibility" data-user-id="{{this.id}}" class="discount-select">
+                                <option value="Pending" {{#if (eq this.discountEligibility "Pending")}}selected{{/if}}>Pending</option>
+                                <option value="Yes" {{#if (eq this.discountEligibility "Yes")}}selected{{/if}}>Yes</option>
+                                <option value="No" {{#if (eq this.discountEligibility "No")}}selected{{/if}}>No</option>
+                            </select>
+                        </p>
+                        {{#if this.document}}
+                        <p>Document: <img src="/uploads/{{this.document}}" alt="Document" class="document-thumbnail"></p>
+                        {{/if}}
+                    </div>
+                    <div class="user-actions">
+                        <button class="btn btn-primary update-btn" data-user-id="{{this.id}}">Update</button>
+                        <button class="btn btn-danger delete-btn" data-user-id="{{this.id}}">Delete</button>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </article>
+    </section>
+</main>
+
+
+{{!-- JavaScript functions placeholders for BUTTONS. Will complete and move these functions to a separate file tomorrow. Maybe! --}}
+<script>
+    document.getElementById('add-user-btn').addEventListener('click', function() {
+        window.location.href = '/users/signup';
+    });
+
+// Update button
+    document.querySelectorAll('.update-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const userId = this.getAttribute('data-user-id');
+            // Missing code here
+        });
+    });
+
+    // Delete button
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const userId = this.getAttribute('data-user-id');
+            // More missing code here
+        });
+    });
+
+// Discount select dropdown
+    document.querySelectorAll('.discount-select').forEach(select => {
+        select.addEventListener('change', function() {
+            const userId = this.getAttribute('data-user-id');
+            const newEligibility = this.value;
+            // Even more missing code here!
+        });
+    });
+</script>
