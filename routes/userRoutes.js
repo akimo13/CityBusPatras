@@ -20,6 +20,6 @@ router.get('/login', userController.getLogin);
 router.get('/wallet', userController.getWallet);
 router.get('/admin', userController.getAdmin);
 router.post('/signup', upload.single('document'), userController.signup);
-router.delete('/delete/:id', userController.deleteUser);  // Ensure this route is correct
+router.delete('/delete/:id', userController.deleteUser);
 
 module.exports = router;

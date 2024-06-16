@@ -19,22 +19,33 @@
                     {{#each users}}
                     <li class="user-item">
                         <span class="user-index">{{inc @index}}</span>
-                        <span class="user-detail">{{this.fullName}}</span>
-                        <span class="user-detail">{{this.username}}</span>
-                        <span class="user-detail">{{this.email}}</span>
-                        <span class="user-detail">
-                            <select class="form-select" name="discountEligibility">
+                        <span class="user-detail full-name">{{this.fullName}}</span>
+                        <span class="user-detail user-name">{{this.username}}</span>
+                        <span class="user-detail email">{{this.email}}</span>
+                        <span class="user-detail user-discount">
+                            {{#if this.document}}
+                            <select class="eligibility-select" name="discountEligibility" data-user-id="{{this.id}}">
                                 <option value="Pending" {{#if (eq this.discountEligibility "Pending")}}selected{{/if}}>Pending</option>
                                 <option value="Yes" {{#if (eq this.discountEligibility "Yes")}}selected{{/if}}>Yes</option>
                                 <option value="No" {{#if (eq this.discountEligibility "No")}}selected{{/if}}>No</option>
                             </select>
+                            {{else}}
+                            <select class="eligibility-select" data-user-id="{{this.id}}" disabled>
+                                <option value="No" selected>No</option>
+                            </select>
+                            {{/if}}
                         </span>
                         <span class="user-detail">
-                            {{#if this.document}}
-                            <img src="/uploads/{{this.document}}" alt="Document" class="document-thumbnail">
+                             {{#if this.document}}
+                            {{#if (isImage this.document)}}
+                            <a href="/uploads/{{this.document}}" target="_blank">
+                                <img src="/uploads/{{this.document}}" alt="Document" class="document-thumbnail"></a>
                             {{else}}
-                            No document
+                                <a href="/uploads/{{this.document}}" target="_blank">View Document</a>
                             {{/if}}
+                        {{else}}
+                        No Document
+                        {{/if}}
                         </span>
                         <span class="user-detail user-actions">
                             <button class="btn btn-success update-btn" data-user-id="{{this.id}}" >Update</button>

@@ -364,11 +364,12 @@ function deleteUser(userId) {
 document.querySelectorAll('.delete-btn').forEach(button => {
   button.addEventListener('click', function() {
       const userId = this.getAttribute('data-user-id');
+      console.log(`Attempting to delete user with ID: ${userId}`); // Debugging line
       deleteUser(userId);
   });
 });
 
-// Redirect to signup page on add user button click
-document.getElementById('add-user-btn').addEventListener('click', function() {
-  window.location.href = '/users/signup';
-});
+// Redirect to login page on add user button click
+// document.getElementById('add-user-btn').addEventListener('click', function() {
+//   window.location.href = '/users/login';
+// });

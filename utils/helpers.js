@@ -19,3 +19,9 @@ Handlebars.registerHelper('even', function (index) {
 Handlebars.registerHelper('inc', function (value) {
     return parseInt(value) + 1;
 });
+
+// Register 'isImage' helper to check if a file is an image
+Handlebars.registerHelper('isImage', function(filename) {
+    const extension = filename.split('.').pop().toLowerCase();
+    return ['jpg', 'jpeg', 'png', 'gif'].includes(extension);
+});

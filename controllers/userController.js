@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Import the necessary functions from userModel.js
-const { deleteUserById, readUsers, writeUsers } = require('../models/userModel');
+const {readUsers, writeUsers } = require('../models/userModel');
 
 // Reads users from the JSON file
 const getUsers = () => {
@@ -20,7 +20,7 @@ exports.deleteUser = (req, res) => {
     try{
         const userId = req.params.id;
         let users = readUsers();
-        users = users.filter(user => user.id !== userId);
+        const updatedUsers = users.filter(user => user.id !== userId);
 
     if (users.length === updatedUsers.length) {
         return res.status(404).json({ message: 'User not found' });
@@ -28,7 +28,7 @@ exports.deleteUser = (req, res) => {
 
     writeUsers(updatedUsers);
     res.json({ success: true });
-    // res.status(200).json({ message: 'User deleted successfully' });
+    res.status(200).json({ message: 'User deleted successfully' });
     } 
     catch (error) {
         console.error('Error deleting user:', error);
