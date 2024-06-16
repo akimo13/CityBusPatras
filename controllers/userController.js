@@ -16,26 +16,24 @@ const saveUsers = (users) => {
     fs.writeFileSync(path.join(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
 };
 
-// Deletes a user by ID from the JSON file
 exports.deleteUser = (req, res) => {
-    const userId = parseInt(req.params.id, 10);
-    deleteUserById(userId);
-    res.status(200).json({ message: 'User deleted successfully' });
-  };
-
-
-exports.deleteUser = (req, res) => {
-    // Extract the user ID from the request parameters
-  const userId = parseInt(req.params.id, 10);
-  const users = readUsers();
-    const updatedUsers = users.filter(user => user.id !== userId);
+    try{
+        const userId = req.params.id;
+        let users = readUsers();
+        users = users.filter(user => user.id !== userId);
 
     if (users.length === updatedUsers.length) {
         return res.status(404).json({ message: 'User not found' });
     }
 
     writeUsers(updatedUsers);
-    res.status(200).json({ message: 'User deleted successfully' });
+    res.json({ success: true });
+    // res.status(200).json({ message: 'User deleted successfully' });
+    } 
+    catch (error) {
+        console.error('Error deleting user:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
 };
 
 

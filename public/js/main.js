@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Function for Delete User Button
 function deleteUser(userId) {
-  if (confirm('Are you sure you want to delete this user?')) {
+  if (confirm(`User with ID: ${userId} will be permanently deleted from the database do you want to proceed?`)) {
       fetch(`/users/delete/${userId}`, {
           method: 'DELETE',
       })
