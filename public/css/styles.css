@@ -15,7 +15,7 @@ img {
 /* ----- BASIC STYLES ----- */
 body {
   margin: 3.6rem 0 0 0;
-  color: #ffffff;
+  color: #000000;
   font-family: 'Montserrat', 'Roboto', sans-serif;
   font-size: 10px;
 }
@@ -950,21 +950,75 @@ input[type="checkbox"][disabled] {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Table styles */
-table {
-  width: 100%;
-  border-collapse: collapse;
+/* ----- USER LIST STYLES ----- */
+
+.user-list-container {
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+  padding-top: .1rem;
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+.user-titles {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 16px;
+  border-bottom: 2px solid #ddd;
+  z-index: 10;
 }
 
-th {
-  background-color: #f8f8f8;
+.user-title {
+  flex: 1;
+  font-weight: bold;
+  padding: 0 8px;
 }
+
+.user-list {
+  padding: 0;
+  list-style: none;
+  counter-reset: user-counter;
+}
+
+.user-item {
+  display: flex;
+  padding: 16px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.user-item:nth-child(odd) {
+  background-color: #e4e4e4;
+}
+
+.user-detail,
+.user-index {
+  flex: 1;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+
+.document-thumbnail {
+  width: 100px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.user-actions .btn {
+  margin: 0;
+  padding: 8px 16px;
+}
+
 
 /* Form elements */
 select {

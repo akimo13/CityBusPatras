@@ -1,15 +1,25 @@
-// Array to store user data
-let users = [
-    { name: "John Doe", email: "johndoe@example.com", discountEligibility: "yes" },
-    { name: "Jane Doe", email: "janedoe@example.com", discountEligibility: "no" },
-];
+const fs = require('fs');
+const path = require('path');
 
-// Function to get all users from array
-const getAllUsers = (callback) => {
-    callback(null, users);
+const dataFilePath = path.join(__dirname, '../data/users.json');
+
+const readUsers = () => {
+  const data = fs.readFileSync(dataFilePath);
+  return JSON.parse(data);
 };
 
-// Export the functions
+const writeUsers = (data) => {
+  fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
+};
+
+const deleteUserById = (id) => {
+  let users = readUsers();
+  users = users.filter(user => user.id !== id);
+  writeUsers(updatedUsers);
+};
+
 module.exports = {
-    getAllUsers,
+  readUsers,
+  writeUsers,
+  deleteUserById
 };

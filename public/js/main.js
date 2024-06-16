@@ -339,3 +339,36 @@ document.addEventListener('DOMContentLoaded', () => {
       signupPane.classList.remove('show', 'active');
   });
 });
+
+
+// Function for Delete User Button
+function deleteUser(userId) {
+  if (confirm('Are you sure you want to delete this user?')) {
+      fetch(`/users/delete/${userId}`, {
+          method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert('User deleted successfully');
+              location.reload();
+          } else {
+              alert('Error deleting user');
+          }
+      })
+      .catch(error => console.error('Error:', error));
+  }
+}
+
+// Add event listeners to delete buttons
+document.querySelectorAll('.delete-btn').forEach(button => {
+  button.addEventListener('click', function() {
+      const userId = this.getAttribute('data-user-id');
+      deleteUser(userId);
+  });
+});
+
+// Redirect to signup page on add user button click
+document.getElementById('add-user-btn').addEventListener('click', function() {
+  window.location.href = '/users/signup';
+});

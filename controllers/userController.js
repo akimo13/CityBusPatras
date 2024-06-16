@@ -2,6 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// Import the necessary functions from userModel.js
+const { deleteUserById, readUsers, writeUsers } = require('../models/userModel');
+
 // Reads users from the JSON file
 const getUsers = () => {
     const data = fs.readFileSync(path.join(__dirname, '../data/users.json'));
@@ -12,6 +15,29 @@ const getUsers = () => {
 const saveUsers = (users) => {
     fs.writeFileSync(path.join(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
 };
+
+// Deletes a user by ID from the JSON file
+exports.deleteUser = (req, res) => {
+    const userId = parseInt(req.params.id, 10);
+    deleteUserById(userId);
+    res.status(200).json({ message: 'User deleted successfully' });
+  };
+
+
+exports.deleteUser = (req, res) => {
+    // Extract the user ID from the request parameters
+  const userId = parseInt(req.params.id, 10);
+  const users = readUsers();
+    const updatedUsers = users.filter(user => user.id !== userId);
+
+    if (users.length === updatedUsers.length) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    writeUsers(updatedUsers);
+    res.status(200).json({ message: 'User deleted successfully' });
+};
+
 
 // Renders the login page
 exports.getLogin = (req, res) => {
@@ -31,7 +57,7 @@ exports.getAdmin = (req, res) => {
 
 // Handles user signup logic
 exports.signup = (req, res) => {
-    const users = getUsers();
+    const users = readUsers();
     const { fullName, signupEmail, signupUsername, signupPassword, confirmPassword, discountCheck } = req.body;
 
     if (signupPassword !== confirmPassword) {
