@@ -9,7 +9,16 @@
                 <li><a href="/" class="nav-link">Home</a></li>
                 <li><a href="/routes" class="nav-link">Routes</a></li>
                 <li><a href="/contact/form" class="nav-link">Contact</a></li>
-                <li><a href="/users/login" class="nav-link"><i class="fa-solid fa-user"></i></a></li>
+                {{#if user}}
+                    <li>
+                        <a href="{{#if user.isAdmin}}/admin{{else}}/wallet{{/if}}" class="nav-link">
+                            <img src="/uploads/blank-profile-pic.png" class="profile-pic" alt="User Profile">
+                        </a>
+                    </li>
+                    <li><a href="/logout" class="nav-link">Logout</a></li>
+                {{else}}
+                    <li><a href="/users/login" class="nav-link">Login / Signup</a></li>
+                {{/if}}
             </ul>
             <i class="fa-solid fa-xmark nav-close" id="nav-close"></i>
         </div>

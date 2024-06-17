@@ -5,7 +5,8 @@
     "email": "johnnybegood@mail.com",
     "username": "akiJ",
     "password": "123456",
-    "document": null
+    "document": null,
+    "isAdmin": false
   },
   {
     "id": 17184540378532,
@@ -13,7 +14,8 @@
     "email": "j.valjean@mail.com",
     "username": "javertsucks",
     "password": "12345678",
-    "document": null
+    "document": null,
+    "isAdmin": false
   },
   {
     "id": 1718454073632,
@@ -21,7 +23,8 @@
     "email": "j.eyre@mail.com",
     "username": "rochester4ever",
     "password": "987654",
-    "document": null
+    "document": null,
+    "isAdmin": false
   },
   {
     "id": 1718555133269,
@@ -29,6 +32,31 @@
     "email": "e.dantes@mail.com",
     "username": "revengeismine",
     "password": "mercedes",
-    "document": "1718555133263.jpg"
+    "document": "1718555133263.jpg",
+    "isAdmin": true
+  },
+  {
+    "id": 1718620000506,
+    "fullName": "Jayne",
+    "email": "j.eyre@mail.com",
+    "username": "rochester4ever",
+    "password": "987654",
+    "document": null
+  },
+  {
+    "id": 1718620007435,
+    "fullName": "Jayne",
+    "email": "j.eyre@mail.com",
+    "username": "rochester4ever",
+    "password": "987654",
+    "document": null
+  },
+  {
+    "id": 1718620278178,
+    "fullName": "Jayne",
+    "email": "j.eyre@mail.com",
+    "username": "rochester4ever",
+    "password": "987654",
+    "document": null
   }
 ]
